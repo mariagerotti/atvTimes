@@ -1,15 +1,19 @@
 <script></script>
 
 <template>
-  <header> 
-    <span class="texto-header">Home</span>
-    <span class="separador">|</span> 
-    <span class="texto-header">Jogadores</span>
-    <span class="separador">|</span>
-    <span class="texto-header">Times</span>
-
-  <main>Main</main>
-  <footer>Rodapé</footer>
+  <header>
+    <div class="menu-esquerdo">
+      <span class="texto-header">Home</span>
+      <span>|</span>
+      <span><RouterLink to="/jogadores">Jogadores</RouterLink></span>
+      <span>|</span>
+      <span><RouterLink to="/times">Times</RouterLink></span>
+    </div>
+    <div class="menu-direito">
+      <span>Sair</span>
+    </div>
+  </header>
+  <RouterView></RouterView>
 </template>
 
 <style>
@@ -20,8 +24,12 @@
   margin: 0 auto;
   /* padding: 2rem; */
   height: 100vh;
-
   font-weight: normal;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
 }
 
 header,
@@ -33,12 +41,13 @@ footer {
   display: flex;
   align-items: center;
   padding-left: 2%;
+  justify-content: space-between;
 }
 main {
   min-height: 70%;
   padding-left: 2%;
 }
-header span{
+header span {
   padding: 0 10px;
 }
 </style>
