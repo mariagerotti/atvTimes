@@ -2,12 +2,12 @@
 export default {
   data() {
     return {
-      times: [
-        {id: '01986caa-0a42-4eef-9d11-25c77fd98df1', nome: 'Boston Celtics', estadio:'TD Garden'},
-        {id: '19be6257-67d9-413a-a0ff-840a8acaba75', nome: 'Los Angeles Clippers', estadio:'Staples Center'},
-        {id: '520465a6-36e2-4554-9499-d2ed6209b9e7', nome: 'Portland Trailblazers', estadio:'Moda Center'},
-        {id: '632a0b5e-41f2-4acb-8c36-019b10f81ade', nome: 'Denver Nuggets', estadio:'Pepsi Center'},
-        {id: '9db7a2ed-e1c2-43b2-b222-47a64a860427', nome: 'Minnesota Timberwolves', estadio:'Target Center'},
+      estadios: [
+        {id: '7332e932-7bc7-47e2-99d0-a2c9dc7b4d31', nome: 'TD Garden',  time:'Boston Celtics'},
+        {id: '72674295-4b5d-4668-8abc-c968a307c9fc', nome: 'Staples Center', time:'Los Angeles Clippers'},
+        {id: '64fe1b8c-12cb-4d94-9233-a56167aab6a7', nome: 'Moda Center',time:'Portland Trailblazers'},
+        {id: 'e33d09ba-8db8-4dd1-be14-0cea1ad9ac59', nome: 'Pepsi Center', time: 'Denver Nuggets'},
+        {id: '7abaf6ba-6a70-4838-81d6-9d4eb40c0d34', nome: 'Target Center', time:'Minnesota Timberwolves'},
       ],
     };
   },
@@ -17,28 +17,28 @@ export default {
   <main>
     <div class="container">
       <div class="title">
-        <h2>Gerenciamento de Times</h2>
+        <h2>Gerenciamento de Estádios</h2>
       </div>
       <div class="form-input">
         <input type="text" />
         <button>Salvar</button>
       </div>
-      <div class="list-times">
+      <div class="list-estadio">
         <table>
           <thead>
             <tr>
               <th>ID</th>
               <th>Nome</th>
               <th>Ações</th>
-              <th>Estádios</th>
+              <th>Times</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for='time in times' :key="time.id">
-              <td>{{time.id}}</td>
-              <td>{{time.nome}}</td>
+            <tr v-for='estadio in estadios' :key="estadio.id">
+              <td>{{estadio.id}}</td>
+              <td>{{estadio.nome}}</td>
+              <td>{{estadio.time}}</td>
               <td>??</td>
-              <td>{{time.estadio}}</td>
             </tr>
           </tbody>
         </table>
@@ -75,11 +75,11 @@ export default {
   font-weight: bold;
   cursor: pointer;
 }
-.list-times{
+.list-estadio{
   display: flex;
   justify-content: center;
 }
-.list-times table{
+.list-estadio table{
   width: 80%;
   margin: 0 auto;
   border-collapse: collapse;

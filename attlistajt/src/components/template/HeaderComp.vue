@@ -6,6 +6,9 @@
       <span> <RouterLink to="/times">Times</RouterLink> </span>
       <span>|</span>
       <span> <RouterLink to="/jogadores">Jogadores</RouterLink> </span>
+      <span>|</span>
+      <span> <RouterLink to="/estadios">Estádios</RouterLink> </span>
+
     </div>
     <div class="menu-direito">
       <span>Sair</span>
