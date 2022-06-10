@@ -10,12 +10,16 @@ export default {
         {id: '632a0b5e-41f2-4acb-8c36-019b10f81ade', nome: 'Denver Nuggets', estadio:'Pepsi Center'},
         {id: '9db7a2ed-e1c2-43b2-b222-47a64a860427', nome: 'Minnesota Timberwolves', estadio:'Target Center'},
       ],
+      novo_time: "",
     };
   },
   methods: {
     salvar(){
       const novo_id = uuidv4();
-      alert(novo_id);
+      this.times.push({
+        id: novo_id,
+        nome: this.novo_time,
+      });
     },
   },
 }
@@ -27,7 +31,7 @@ export default {
         <h2>Gerenciamento de Times</h2>
       </div>
       <div class="form-input">
-        <input type="text" />
+        <input type="text" v-model="novo_time"/>
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-times">
