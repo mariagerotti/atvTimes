@@ -8,7 +8,8 @@
       <span> <RouterLink to="/jogadores">Jogadores</RouterLink> </span>
       <span>|</span>
       <span> <RouterLink to="/estadios">Estádios</RouterLink> </span>
-
+      <span>|</span>
+      <span> <RouterLink to="/musicas">Músicas</RouterLink> </span>
     </div>
     <div class="menu-direito">
       <span>Sair</span>

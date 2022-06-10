@@ -1,4 +1,5 @@
   <script>
+  import {v4 as uuidv4} from 'uuid'
  export default {
    data() {
      return {
@@ -11,6 +12,15 @@
         ],
      };
    },
+   methods: {
+    salvar(){
+      const novo_jogador = uuidv4();
+      this.jogadores.push({
+        id: novo_jogador,
+        nome: this.novo_jogador,
+      });
+    },
+  },
  }
   </script>
   <template>
@@ -20,8 +30,8 @@
         <h2>Gerenciamento de Jogadores</h2>
       </div>
       <div class="form-input">
-        <input type="text" />
-        <button>Salvar</button>
+        <input type="text" v-model="novo_time"/>
+        <button @click="salvar">Salvar</button>
       </div>
       <div class="list-jogadores">
         <table>

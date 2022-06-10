@@ -1,12 +1,14 @@
 <script setup>
 import HeaderComp from '@/components/template/HeaderComp.vue';
 import FooterComp from '@/components/template/FooterComp.vue';
+import MusicasView from './views/MusicasView.vue';
 </script>
 
 <template>
   <HeaderComp />
   <RouterView />
   <FooterComp />
+  <MusicasView />
 </template>
 
 <style>
