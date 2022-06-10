@@ -34,7 +34,7 @@ a{
 
 header,
 footer {
-  background-color: cornflowerblue;
+  background-color: rgb(0, 114, 28);
   height: 15%;
   font-size: 1.3rem;
   color: white;
