@@ -1,4 +1,5 @@
 <script>
+import {v4 as uuidv4} from 'uuid'
 export default {
   data() {
     return {
@@ -11,6 +12,12 @@ export default {
       ],
     };
   },
+  methods: {
+    salvar(){
+      const novo_id = uuidv4();
+      alert(novo_id);
+    },
+  },
 }
 </script>
 <template>
@@ -21,7 +28,7 @@ export default {
       </div>
       <div class="form-input">
         <input type="text" />
-        <button>Salvar</button>
+        <button @click="salvar">Salvar</button>
       </div>
       <div class="list-times">
         <table>
