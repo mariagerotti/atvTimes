@@ -30,7 +30,7 @@
         <h2>Gerenciamento de Jogadores</h2>
       </div>
       <div class="form-input">
-        <input type="text" v-model="novo_time"/>
+        <input type="text" v-model="novo_jogador"/>
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-jogadores">
@@ -80,7 +80,6 @@
   height: 40px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 10px;
-  background-color: rgb(227, 170, 0);
   color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;
