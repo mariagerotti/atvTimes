@@ -14,10 +14,14 @@ export default {
   methods: {
     async salvar() {
      if (this.times.id) {
-       const time_alterado = await axios.put(`http://localhost:4000/times/${this.time.id}`)
+       const time_alterado = await axios.put(`http://localhost:4000/times/${this.time.id}`,
        this.time
-     };
-      const time_criado = await axios.post("http://localhost:4000/times", time);
+       );
+     } else {
+        const time_criado = await axios.post(
+        "http://localhost:4000/times/", 
+        this.time);
+     }
       this.times.push(time_criado.data);
     },
     async excluir(time){
