@@ -1,53 +1,29 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 export default {
   data() {
     return {
-      times: [
-        {
-          id: "01986caa-0a42-4eef-9d11-25c77fd98df1",
-          nome: "Boston Celtics",
-          estadio: "TD Garden",
-        },
-        {
-          id: "19be6257-67d9-413a-a0ff-840a8acaba75",
-          nome: "Los Angeles Clippers",
-          estadio: "Staples Center",
-        },
-        {
-          id: "520465a6-36e2-4554-9499-d2ed6209b9e7",
-          nome: "Portland Trailblazers",
-          estadio: "Moda Center",
-        },
-        {
-          id: "632a0b5e-41f2-4acb-8c36-019b10f81ade",
-          nome: "Denver Nuggets",
-          estadio: "Pepsi Center",
-        },
-        {
-          id: "9db7a2ed-e1c2-43b2-b222-47a64a860427",
-          nome: "Minnesota Timberwolves",
-          estadio: "Target Center",
-        },
-      ],
+      times: [],
       novo_time: "",
     };
   },
+  async created() {
+    const times = await axios.get("http://localhost:4000/times");
+    this.times  = times.data;
+  },
   methods: {
-    salvar() {
-      if (this.novo_time !== "") {
-        const novo_id = uuidv4();
-        this.times.push({
-          id: novo_id,
-          nome: this.novo_time,
-        });
-        this.novo_time = "";
-      }
+    async salvar() {
+     if (this.times.id) {
+       const time_alterado = await axios.put(`http://localhost:4000/times/${this.time.id}`)
+       this.time
+     };
+      const time_criado = await axios.post("http://localhost:4000/times", time);
+      this.times.push(time_criado.data);
     },
-    excluir(time){
+    async excluir(time){
+      await axios.delete(`http://localhost:4000/times/${time.id}`);
       const indice = this.times.indexOf(time);
-      this.times.splice(indice, 1)
+      this.times.splice(indice, 1);
     },
   },
 };
