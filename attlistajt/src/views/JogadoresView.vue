@@ -1,27 +1,32 @@
   <script>
-  import {v4 as uuidv4} from 'uuid'
+  import axios from "axios";
  export default {
    data() {
      return {
-       jogadores: [
-         {id: 'd4ce72f7-1971-4107-9c80-77d021dd63ea', nome: 'Jayson Tatum', time: 'Boston Celtics'},
-         {id: 'b2f0af2d-e110-4a9a-8c95-3fea7dd68653', nome: 'Jaylen Brown', time: 'Boston Celtics'},
-         {id: '539782c5-da35-4612-9323-d6687a584479', nome: 'Damian Lillard', time: 'Portland Trailblazers'},
-         {id: 'e8c96c5b-4e96-4eec-93f8-b43b351e4a27', nome: 'Paul George', time: 'Los Angeles Clippers'},    
-         {id: 'a1f5e3d3-5d04-46f5-bc6f-185d46a28993', nome: 'Nikola Jokic', time:'Denver Nuggets'}
-        ],
+       jogadores: [],
+       jogador: {},
+       times:[],
      };
    },
+   async created(){
+    await this.buscarTodosOsJogadores();
+    await this.buscarTodosOsTimes();
+   },
    methods: {
-    salvar(){
-      const novo_jogador = uuidv4();
-      this.jogadores.push({
-        id: novo_jogador,
-        nome: this.novo_jogador,
-      });
+    async buscarTodosOsTimes(){
+      const times = await axios.get("http://localhost:4000/times");
+      this.times = times.data;
+    },
+    async buscarTodosOsJogadores(){
+      const resposta = await axios.get("http://localhost:4000/jogadores?expand=time");
+      this.jogadores = resposta.data;
+    },
+    async salvar(){
+      await axios.post("http://localhost:4000/jogadores", this.jogador);
+      await this.buscarTodosOsJogadores();
     },
   },
- }
+ };
   </script>
   <template>
   <main>
