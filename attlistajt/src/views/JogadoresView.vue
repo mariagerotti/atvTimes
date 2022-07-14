@@ -35,7 +35,10 @@
         <h2>Gerenciamento de Jogadores</h2>
       </div>
       <div class="form-input">
-        <input type="text" v-model="novo_jogador"/>
+        <input type="text" v-model="jogador.nome" placeholder="nome do jogador"/>
+        <select v-model="jogador.timeId">
+        <option v-for="time in times" :key="time.id" :value="time.id"> {{time.nome}}</option>
+        </select>
         <button @click="salvar">Salvar</button>
       </div>
       <div class="list-jogadores">
@@ -49,11 +52,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="jogadores in jogadores" :key="jogadores.id">
-              <td>{{jogadores.id}}</td>
-              <td>{{jogadores.nome}}</td>
+            <tr v-for="jogadores in jogadores" :key="jogador.id">
+              <td>{{jogador.id}}</td>
+              <td>{{jogador.nome}}</td> 
+              <td>{{jogador.time.nome}}</td> 
               <td>??</td>
-              <td>{{jogadores.time}}</td>
             </tr>
           </tbody>
         </table>
